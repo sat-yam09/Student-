@@ -1,0 +1,311 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'JetBrains Mono', monospace;
+    background-color: #0A0A0A;
+    color: #E5E5E5;
+    line-height: 1.6;
+}
+
+// Add these new styles and modifications
+
+header {
+    background-color: rgba(10, 10, 10, 0.95);
+    border-bottom: 1px solid #2A2A2A;
+    padding: 1.5rem 4rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    gap: 3rem;
+    list-style: none;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #FF7F11;
+}
+
+.hero {
+    min-height: 100vh;
+    padding: 120px 4rem 4rem;
+    background: linear-gradient(to bottom right, #0A0A0A, #1A1A1A);
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4rem;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    max-width: 500px;
+}
+
+.hero-image img {
+    width: 90%;
+    height: auto;
+    object-fit: contain;
+    margin-right: 2rem;
+}
+
+.feature-container {
+    display: flex;
+    align-items: center;
+    gap: 6rem;
+    margin-top: 3rem;
+    padding: 2rem;
+}
+
+.feature-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 450px;
+}
+
+.feature-image img {
+    width: 85%;
+    height: auto;
+    object-fit: contain;
+}
+
+.job-sim .feature-image img {
+    max-width: 400px;
+}
+
+.dsa-game .feature-image img {
+    max-width: 380px;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiMyQTJBMkEiIG9wYWNpdHk9IjAuMiIvPjwvc3ZnPg==');
+    opacity: 0.1;
+}
+
+h1 {
+    font-size: 4.5rem;
+    font-weight: 800;
+    background: linear-gradient(45deg, #FF7F11, #FF3F00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 2rem;
+}
+
+.description {
+    color: #BEB7A4;
+    font-size: 1.4rem;
+    max-width: 700px;
+    margin-bottom: 2rem;
+}
+
+.get-started {
+    background: linear-gradient(45deg, #FF7F11, #FF3F00);
+    color: #FFFFFF;
+    padding: 1rem 2.5rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 127, 17, 0.3);
+}
+
+.get-started:hover {
+    transform: translateY(-2px);
+}
+
+section {
+    padding: 8rem 4rem;
+    background: #0A0A0A;
+    border-bottom: 1px solid #2A2A2A;
+}
+
+.collab-card {
+    background: #1A1A1A;
+    border: 1px solid #2A2A2A;
+    border-radius: 12px;
+    padding: 2.5rem;
+    transition: all 0.3s ease;
+}
+
+.collab-card:hover {
+    border-color: #FF7F11;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 127, 17, 0.1);
+}
+
+.level-indicator {
+    background: #1A1A1A;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid #2A2A2A;
+}
+
+.xp-bar {
+    height: 8px;
+    background: linear-gradient(90deg, #FF7F11, #FF3F00);
+    border-radius: 4px;
+    width: 60%;
+    box-shadow: 0 2px 10px rgba(255, 127, 17, 0.2);
+}
+
+nav ul li a {
+    color: #E5E5E5;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-size: 1.1rem;
+}
+
+nav ul li a:hover {
+    color: #FF7F11;
+}
+
+.feature-text ul li {
+    color: #BEB7A4;
+    margin: 1rem 0;
+    padding-left: 2rem;
+    position: relative;
+}
+
+.feature-text ul li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #FF7F11;
+}
+
+h2 {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    background: linear-gradient(45deg, #FF7F11, #FF3F00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+// Add these new hover effects and animations
+
+.logo {
+    position: relative;
+    overflow: hidden;
+}
+
+.logo::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -2px;
+    left: -100%;
+    background: linear-gradient(90deg, #FF7F11, #FF3F00);
+    transition: 0.3s ease;
+}
+
+.logo:hover::after {
+    left: 0;
+}
+
+nav ul li a {
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: #FF7F11;
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.feature-image {
+    transition: transform 0.5s ease;
+}
+
+.feature-image:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+.collab-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.collab-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 127, 17, 0.1));
+    transform: translateX(-100%);
+    transition: 0.5s ease;
+}
+
+.collab-card:hover::before {
+    transform: translateX(0);
+}
+
+.get-started {
+    position: relative;
+    overflow: hidden;
+}
+
+.get-started::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.get-started:hover::before {
+    width: 200%;
+    height: 200%;
+}

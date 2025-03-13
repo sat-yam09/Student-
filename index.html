@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/locomotive-scroll/4.1.4/locomotive-scroll.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/locomotive-scroll/4.1.4/locomotive-scroll.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+<body data-scroll-container>
+    <header>
+        <div class="logo">LOGO</div>
+        <nav>
+            <ul>
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#job-sim">JOB-SIM</a></li>
+                <li><a href="#team">TEAM</a></li>
+                <li><a href="#game">GAME</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="hero">
+            <div class="hero-content">
+                <h1 class="animate-text">Hey Developers,</h1>
+                <p class="animate-text">🚀 Navigate Your Future with Confidence</p>
+                <p class="description animate-text">Our platform helps students from grades 10 to college make informed decisions about their academic streams, colleges, and career paths.</p>
+                <button class="get-started animate-text">get started</button>
+            </div>
+            <div class="hero-image animate-image">
+                <!-- Replace with actual illustration -->
+                <img src="main.png" alt="Developer illustration">
+            </div>
+        </div>
+    </main>
+
+    <!-- After the hero section, add: -->
+    <section class="job-sim" data-scroll-section>
+        <h2>Job Simulation</h2>
+        <div class="feature-container">
+            <div class="feature-text">
+                <h3>Real-World Project Experience</h3>
+                <p>Complete time-bound projects that simulate actual work environments</p>
+                <ul>
+                    <li>Industry-standard project tasks</li>
+                    <li>Deadline-driven development</li>
+                    <li>Professional feedback system</li>
+                </ul>
+            </div>
+            <div class="feature-image">
+                <img src="sub.png" alt="Job Simulation">
+            </div>
+        </div>
+    </section>
+
+    <section class="dsa-game" data-scroll-section>
+        <h2>Gamified DSA Learning</h2>
+        <div class="feature-container">
+            <div class="feature-image">
+                <img src="sub1.png" alt="DSA Game">
+            </div>
+            <div class="feature-text">
+                <h3>Level Up Your DSA Skills</h3>
+                <p>Master Data Structures and Algorithms through interactive gameplay</p>
+                <div class="level-indicator">
+                    <div class="level">Level 1</div>
+                    <div class="xp-bar"></div>
+                    <span>500 XP</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-collab" data-scroll-section>
+        <h2>Team Collaboration</h2>
+        <div class="collab-features">
+            <div class="collab-card">
+                <h3>Live Code Share</h3>
+                <p>Real-time VS Code screen sharing</p>
+            </div>
+            <div class="collab-card">
+                <h3>Ask to Code</h3>
+                <p>Get instant help from peers</p>
+            </div>
+            <div class="collab-card">
+                <h3>Code Review</h3>
+                <p>Inline commenting system</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add animation script -->
+    <script>
+        // Register ScrollTrigger plugin
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Initialize Locomotive Scroll
+        const locoScroll = new LocomotiveScroll({
+            el: document.querySelector('[data-scroll-container]'),
+            smooth: true,
+            multiplier: 1
+        });
+
+        // Update ScrollTrigger when locomotive scroll updates
+        locoScroll.on("scroll", ScrollTrigger.update);
+
+        // Create a timeline for smooth sequence animations
+        const tl = gsap.timeline();
+
+        // Animate the header
+        tl.from("header", {
+            y: -100,
+            opacity: 0,
+            duration: 1,
+            ease: "power4.out"
+        });
+
+        // Animate text elements
+        tl.from(".animate-text", {
+            y: 50,
+            opacity: 0,
+            stagger: 0.2,
+            duration: 0.8,
+            ease: "power2.out"
+        }, "-=0.5");
+
+        // Animate the image
+        tl.from(".animate-image", {
+            x: 100,
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out"
+        }, "-=0.5");
+
+        // Hover animation for the get started button
+        gsap.to(".get-started", {
+            scale: 1.1,
+            duration: 0.3,
+            paused: true,
+            ease: "power1.out"
+        });
+
+        // Add hover event listeners to the button
+        const button = document.querySelector(".get-started");
+        button.addEventListener("mouseenter", () => {
+            gsap.to(button, {
+                scale: 1.1,
+                duration: 0.3
+            });
+        });
+
+        button.addEventListener("mouseleave", () => {
+            gsap.to(button, {
+                scale: 1,
+                duration: 0.3
+            });
+        });
+
+        // Add scroll animations
+        gsap.from(".job-sim", {
+            scrollTrigger: {
+                trigger: ".job-sim",
+                start: "top center",
+                end: "bottom center",
+                scrub: 1
+            },
+            y: 100,
+            opacity: 0
+        });
+
+        gsap.from(".job-sim .feature-image", {
+            scrollTrigger: {
+                trigger: ".job-sim",
+                start: "top center",
+                end: "bottom center",
+                scrub: 1
+            },
+            x: 100,
+            opacity: 0
+        });
+
+        gsap.from(".dsa-game", {
+            scrollTrigger: {
+                trigger: ".dsa-game",
+                start: "top center",
+                end: "bottom center",
+                scrub: 1
+            },
+            y: 100,
+            opacity: 0
+        });
+
+        gsap.from(".dsa-game .feature-image", {
+            scrollTrigger: {
+                trigger: ".dsa-game",
+                start: "top center",
+                end: "bottom center",
+                scrub: 1
+            },
+            x: -100,
+            opacity: 0
+        });
+
+        gsap.from(".collab-card", {
+            scrollTrigger: {
+                trigger: ".team-collab",
+                start: "top center",
+                end: "center center",
+                scrub: 1
+            },
+            y: 50,
+            opacity: 0,
+            stagger: 0.2
+        });
+
+        // XP bar animation
+        gsap.to(".xp-bar", {
+            scrollTrigger: {
+                trigger: ".level-indicator",
+                start: "top center",
+                end: "bottom center",
+                scrub: 1
+            },
+            width: "60%",
+            duration: 1.5,
+            ease: "power2.out"
+        });
+
+        // Refresh ScrollTrigger on locomotive scroll update
+        ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+        ScrollTrigger.refresh();
+    // Add after existing animations
+    
+    // Floating animation for images
+    gsap.to(".hero-image img", {
+        y: 15,
+        duration: 2,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut"
+    });
+    
+    // Text reveal animation for headings
+    gsap.utils.toArray("h2").forEach(heading => {
+        gsap.from(heading, {
+            scrollTrigger: {
+                trigger: heading,
+                start: "top 80%",
+                end: "bottom 20%",
+                scrub: 1
+            },
+            backgroundSize: "200% 200%",
+            backgroundPosition: "100% 100%",
+            duration: 1
+        });
+    });
+    
+    // Parallax effect for feature images
+    gsap.utils.toArray(".feature-image").forEach(image => {
+        gsap.to(image, {
+            scrollTrigger: {
+                trigger: image,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 1
+            },
+            y: 50,
+            ease: "none"
+        });
+    });
+    
+    // Cards stagger animation
+    gsap.from(".collab-card", {
+        scrollTrigger: {
+            trigger: ".collab-features",
+            start: "top 80%",
+            end: "bottom 20%"
+        },
+        y: 100,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "back.out(1.7)"
+    });
+    });
+</body>
+</html>
